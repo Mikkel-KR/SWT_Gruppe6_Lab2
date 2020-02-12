@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 
 namespace ECS_Legacy_Refactored
 {
-    class Heater
+    class Heater: IHeater
     {
-        
-            public void TurnOn()
-            {
-                System.Console.WriteLine("Heater is on");
-            }
+        public void TurnOn()
+        {
+            System.Console.WriteLine("Heater is on");
+        }
 
-            public void TurnOff()
-            {
-                System.Console.WriteLine("Heater is off");
-            }
-
-            public bool RunSelfTest()
-            {
-                return true;
-            }
+        public void TurnOff()
+        {
+            System.Console.WriteLine("Heater is off");
+        }
     }
 }
