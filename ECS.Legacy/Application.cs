@@ -2,7 +2,6 @@
 {
     // HEJ SLET DET HER MAGNUS
 
-    // HEJ SLET DET HER JEPPE
     public class Application
     {
         public static void Main(string[] args)
