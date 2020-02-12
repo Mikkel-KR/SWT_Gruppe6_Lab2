@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECS_Legacy_Refactored
 {
-    class Heater: IHeater
+    public class Heater: IHeater
     {
         public void TurnOn()
         {
