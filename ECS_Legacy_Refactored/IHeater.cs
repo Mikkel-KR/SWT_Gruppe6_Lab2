@@ -8,5 +8,8 @@ namespace ECS_Legacy_Refactored
 {
     public interface IHeater
     {
+        void TurnOn();
+
+        void TurnOff();
     }
 }
