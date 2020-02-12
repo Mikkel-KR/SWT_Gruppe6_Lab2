@@ -1,6 +1,5 @@
 ﻿namespace ECS.Legacy
 {
-    
     // HEJ SLET DET HER JEPPE
     public class Application
     {
