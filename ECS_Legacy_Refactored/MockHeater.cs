@@ -8,8 +8,8 @@ namespace ECS_Legacy_Refactored
 {
     public class MockHeater : IHeater
     {
-        public uint TurnOnCount { get; set; }
-        public uint TurnOffCount { get; set; }
+        public int TurnOnCount { get; set; }
+        public int TurnOffCount { get; set; }
         public void TurnOn()
         {
             TurnOnCount++;

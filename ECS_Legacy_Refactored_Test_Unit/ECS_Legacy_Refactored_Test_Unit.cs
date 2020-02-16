@@ -22,15 +22,40 @@ namespace ECS_Legacy_Refactored_Test_Unit
             
         }
 
-        [Test]
-        public void Regulate_TemperatureUnderThreshold_HeaterTurnOnCalled(int threshold, int temperature, uint TurnOnCount, uint TurnOffCount)
+        [TestCase(-5, -10, 1)]
+        [TestCase(5, 0, 1)]
+        [TestCase(5, -5, 1)]
+        public void Regulate_TemperatureUnderThreshold_HeaterTurnOnCalled(int threshold, int temperature, int onCountResult)
         {
-            uut.Heater_ = new MockHeater();
-            uut.TempSensor_ = new StubTempSensor(temperature);
+            uut = new ECS(threshold);
 
+            MockHeater TestHeater = new MockHeater();
+            StubTempSensor TestSensor = new StubTempSensor(temperature);
+            uut.TempSensor_ = TestSensor;
+            uut.Heater_ = TestHeater;
 
+            uut.Regulate();
+
+            Assert.That(onCountResult, Is.EqualTo(TestHeater.TurnOnCount));
         }
 
+
+        [TestCase(5, 10, 0)]
+        [TestCase(-10, -5, 0)]
+        [TestCase(-5, 5, 0)]
+        public void Regulate_TemperatureOverThreshold_HeaterTurnOnNotCalled(int threshold, int temperature, int onCountResult)
+        {
+            uut = new ECS(threshold);
+
+            MockHeater TestHeater = new MockHeater();
+            StubTempSensor TestSensor = new StubTempSensor(temperature);
+            uut.TempSensor_ = TestSensor;
+            uut.Heater_ = TestHeater;
+
+            uut.Regulate();
+
+            Assert.That(onCountResult, Is.EqualTo(TestHeater.TurnOnCount));
+        }
 
 
 
